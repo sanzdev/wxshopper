@@ -1,7 +1,6 @@
 ﻿using Shopper.Models;
 using Shopper.Providers.Models;
 using System.Threading.Tasks;
-using Shopper.Configuration;
 
 namespace Shopper.Providers.Contracts
 {

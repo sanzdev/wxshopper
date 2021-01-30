@@ -9,27 +9,27 @@ namespace Shopper.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class TrolleyController : ControllerBase
+    public class TrolleyTotalController : ControllerBase
     {
-        private readonly ILogger<TrolleyController> _logger;
+        private readonly ILogger<TrolleyTotalController> _logger;
         private readonly ITrolleyCalculationProvider _trolleyCalculationProvider;
 
-        public TrolleyController(ILogger<TrolleyController> logger, ITrolleyCalculationProvider trolleyCalculationProvider)
+        public TrolleyTotalController(ILogger<TrolleyTotalController> logger, ITrolleyCalculationProvider trolleyCalculationProvider)
         {
             _logger = logger;
             _trolleyCalculationProvider = trolleyCalculationProvider;
         }
 
         [HttpPost]
-        [Route("TrolleyTotal")]
         [ProducesResponseType(typeof(decimal), StatusCodes.Status200OK)]
         [ProducesResponseType(StatusCodes.Status400BadRequest)]
         public async Task<IActionResult> TrolleyTotal([FromBody] TrolleyCalculationRequest trolley)
         {
-            _logger.LogInformation("product list request received");
+            _logger.LogInformation("trolley calculation request received");
+            _logger.LogInformation(Newtonsoft.Json.JsonConvert.SerializeObject(trolley));
 
             if (trolley == null)
-                return BadRequest();
+                return Problem(statusCode: 400, detail: "Invalid request body");
 
             var total = await _trolleyCalculationProvider.GetTrolleyTotalAsync(trolley);
             

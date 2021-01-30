@@ -10,12 +10,12 @@ namespace Shopper.Controllers
 {
     [ApiController]
     [Route("api/[controller]")]
-    public class ProductsController : ControllerBase
+    public class SortController : ControllerBase
     {
-        private readonly ILogger<ProductsController> _logger;
+        private readonly ILogger<SortController> _logger;
         private readonly IProductsProvider _productsProvider;
 
-        public ProductsController(ILogger<ProductsController> logger, IProductsProvider productsProvider)
+        public SortController(ILogger<SortController> logger, IProductsProvider productsProvider)
         {
             _logger = logger;
             _productsProvider = productsProvider;
@@ -29,12 +29,14 @@ namespace Shopper.Controllers
         {
             _logger.LogInformation("product list request received");
 
-            var sort = SortOptions.Ascending;
-            if (!string.IsNullOrEmpty(sortOption) && !Enum.TryParse(sortOption, true, out sort))
+            if (string.IsNullOrEmpty(sortOption))
+                return BadRequest(new { title = "Bad Request", status = 400, message = "Accepted sort options are Low, High, Ascending, Descending and Recommended",  });
+
+            if (!Enum.TryParse(sortOption, true, out SortOptions sort))
                 return BadRequest();
 
-            if (!string.IsNullOrEmpty(sortOption) && !Enum.IsDefined(typeof(SortOptions), sort))
-                return Problem(statusCode: 400, detail: "Unsupported sort parameter");
+            if (!Enum.IsDefined(typeof(SortOptions), sort))
+                return Problem(statusCode: 400, detail: "Accepted sort options are Low, High, Ascending, Descending and Recommended");
 
             var result = await _productsProvider.GetProductsAsync(sort);
 

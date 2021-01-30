@@ -1,13 +1,12 @@
-﻿using System.Linq;
+﻿using FluentAssertions;
+using Microsoft.Extensions.Configuration;
+using Microsoft.Extensions.Logging;
+using Shopper.Models;
 using Shopper.Providers;
 using Shopper.Tests.Helpers;
-using Microsoft.Extensions.Logging;
-using Microsoft.Extensions.Configuration;
+using System.Linq;
 using System.Net.Http;
 using System.Threading.Tasks;
-using Shopper.Models;
-using FluentAssertions;
-using Shopper.Configuration;
 using Xunit;
 
 namespace Shopper.Tests.Providers
@@ -28,7 +27,7 @@ namespace Shopper.Tests.Providers
             _mockShopperHistoryProviderLogger = ShopperHistoryProviderMockHelper.GetShopperHistoryProviderLogger();
         }
 
-        [Fact(DisplayName = "Test sorting Ascending.")]
+        [Fact(DisplayName = "Test sort Ascending")]
         public async Task GetProdcuts_With_SortOption_Ascending_Returns_ProductsOrderedby_Name()
         {
             _mockHttpClient = ProductProviderMockHelper.GetMockSuccessfullProductsProviderHttpClient();
@@ -44,7 +43,7 @@ namespace Shopper.Tests.Providers
             Assert.Equal("Test Product A", products.FirstOrDefault().Name);
         }
 
-        [Fact(DisplayName = "Test sorting Descending.")]
+        [Fact(DisplayName = "Test sort Descending")]
         public async Task GetProdcuts_With_SortOption_Descending_Returns_ProductsOrderedby_Name_Descending()
         {
             _mockHttpClient = ProductProviderMockHelper.GetMockSuccessfullProductsProviderHttpClient();

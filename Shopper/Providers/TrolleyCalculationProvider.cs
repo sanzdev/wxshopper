@@ -1,15 +1,14 @@
-﻿using Shopper.Providers.Contracts;
-using Shopper.Providers.Models;
-using Microsoft.AspNetCore.WebUtilities;
+﻿using Microsoft.AspNetCore.WebUtilities;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.Logging;
 using Newtonsoft.Json;
+using Shopper.Configuration;
+using Shopper.Providers.Contracts;
+using Shopper.Providers.Models;
 using System.Collections.Generic;
 using System.Net.Http;
 using System.Net.Http.Json;
 using System.Threading.Tasks;
-using Shopper.Configuration;
-using Shopper.Models;
 
 namespace Shopper.Providers
 {

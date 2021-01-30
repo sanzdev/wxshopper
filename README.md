@@ -37,10 +37,10 @@ Response:
 
 
 2. Get Products  
-Operation: Get Products. Optional Sort Parameter.  
-Parameters:   
-QueryString parameter sortOption.  
-Token.  
+Operation: Get Products with a sort Parameter.  
+Parameters: 
+-QueryString parameter sortOption - Low, High, Ascending, Descending, Recommended
+-Token.  
 Response:  
 [
     {
@@ -54,7 +54,7 @@ Response:
 2. Get Products  
 Operation: Get  
 Parameters:   
-Token.  
+-Token.  
 List of Items    
 {
   "products": [
