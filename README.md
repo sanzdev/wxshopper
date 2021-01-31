@@ -30,9 +30,9 @@ There are three exercises here.
 
 
 
-1. Get user details     
+1. Get user details.     
 ```
-Operation: GET - api/user  
+Operation: GET - https://wxchallengeapi.azure-api.net/api/User  
 Parameters: None  
 Response:   
 {
@@ -41,9 +41,9 @@ Response:
 }
 ```    
 
-2. Get Products     
+2. Get Products sorted.     
 ```
-Operation: Get Products with a sort Parameter.  
+Operation: Get - https://wxchallengeapi.azure-api.net/api/Sort 
 Parameters:   
 - QueryString parameter sortOption - Low, High, Ascending, Descending, Recommended
 - Token.  
@@ -57,9 +57,9 @@ Response:
 ]  
 ```  
 
-2. Get Trolley Totals    
+2. Get Trolley Totals.    
 ```
-Operation: Post  
+Operation: Post - https://wxchallengeapi.azure-api.net/api/TrolleyTotal  
 Parameters:   
 - Form Data - Json Trolley items.   
 - Token.  
