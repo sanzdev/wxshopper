@@ -17,16 +17,19 @@ Documentation - https://wxshopper.azurewebsites.net/swagger/index.html
 - Authentication, API security currently considered out of scope.
 - No automation, integration tests, CI/CD implemented.
 - Versioning, retry mechanisms, fault tolerance are not considered in scope.
+- Comments are not added inside the code as they are already very much readable.
 - No database involvement.
 
 - Test coverage is currently 65%. More scenarios were not added in the interest of time.
 - Fluent validations, more logging and structured logging are improvements that can be done.
+- Better exception handling and a common api response could be added.
    
 ### Solution
 
 There are three exercises here.
 
-1. Get user details  
+1. Get user details     
+````
 Operation: GET - api/user  
 Parameters: None  
 Response:   
@@ -34,13 +37,15 @@ Response:
   "name": "string",
   "token": "string"
 }
+```
+   
 
-
-2. Get Products  
+2. Get Products     
+```
 Operation: Get Products with a sort Parameter.  
-Parameters: 
--QueryString parameter sortOption - Low, High, Ascending, Descending, Recommended
--Token.  
+Parameters:   
+- QueryString parameter sortOption - Low, High, Ascending, Descending, Recommended
+- Token.  
 Response:  
 [
     {
@@ -49,9 +54,10 @@ Response:
         "quantity": 0.0
     }
 ]  
+   
 
-
-2. Get Products  
+2. Get Products    
+``` 
 Operation: Get  
 Parameters:   
 -Token.  
@@ -66,6 +72,7 @@ List of Items
   ]
 }  
 Response:  
-Lowest Total Amount  
+Lowest Total Amount     
+```   
   
   
