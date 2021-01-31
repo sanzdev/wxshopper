@@ -29,9 +29,9 @@ Documentation - https://wxshopper.azurewebsites.net/swagger/index.html
 There are three exercises here.
 
 
-```
-1. Get user details     
 
+1. Get user details     
+```
 Operation: GET - api/user  
 Parameters: None  
 Response:   
@@ -39,10 +39,10 @@ Response:
   "name": "string",
   "token": "string"
 }
-      
+```    
 
 2. Get Products     
-
+```
 Operation: Get Products with a sort Parameter.  
 Parameters:   
 - QueryString parameter sortOption - Low, High, Ascending, Descending, Recommended
@@ -55,12 +55,13 @@ Response:
         "quantity": 0.0
     }
 ]  
-  
+```  
 
 2. Get Trolley Totals    
-
+```
 Operation: Post  
 Parameters:   
+- FormData - Json Trolley items.   
 - Token.  
 List of Items    
 {
