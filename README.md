@@ -61,7 +61,7 @@ Response:
 ```
 Operation: Post  
 Parameters:   
-- FormData - Json Trolley items.   
+- Form Data - Json Trolley items.   
 - Token.  
 List of Items    
 {
